@@ -1,0 +1,14 @@
+# Replace all example values before registering this file with the homeserver.
+id: mumabridge
+url: http://mumabridge:8080
+as_token: CHANGE_ME_MATRIX_AS_TOKEN
+hs_token: CHANGE_ME_MATRIX_HS_TOKEN
+sender_localpart: mumabridge
+rate_limited: false
+push_ephemeral: true
+namespaces:
+  users:
+    - exclusive: true
+      regex: '@mumabridge_mumble_.*:example\\.org'
+  aliases: []
+  rooms: []

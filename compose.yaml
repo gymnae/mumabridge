@@ -1,0 +1,19 @@
+services:
+  mumabridge:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - bridge-state:/var/lib/mumabridge
+      # Uncomment when using a Mumble client certificate.
+      # - ./secrets:/run/secrets:ro
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/mumabridge", "healthcheck"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  bridge-state:
